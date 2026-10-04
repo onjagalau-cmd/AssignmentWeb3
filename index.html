@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport tag для работы медиа-запросов и сетки -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 3 - Responsive Design</title>
+
+    <!-- Подключаем Bootstrap 5.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Подключаем свой style.css ПОСЛЕ Bootstrap -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVBAR (Выпадающее меню) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">FootballPulse</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#custom-services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION 1: HERO -->
+    <section id="hero" class="bg-primary text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Football Analytics Portal</h1>
+            <p class="lead">Latest news, tactical reviews, and match analytics updated daily.</p>
+        </div>
+    </section>
+
+    <!-- TASK 1: MEDIA QUERIES BY HAND (Чистый CSS без Bootstrap классов) -->
+    <section id="custom-services" class="custom-section">
+        <div class="custom-container">
+            <h2 class="custom-title">Our Services</h2>
+            <div class="custom-grid">
+                <div class="custom-card">
+                    <h3>Live Match Feed</h3>
+                    <p>Real-time updates and text broadcasting for top European leagues.</p>
+                </div>
+                <div class="custom-card">
+                    <h3>Tactical Breakdown</h3>
+                    <p>In-depth heatmaps and player passing charts after every game.</p>
+                </div>
+                <div class="custom-card">
+                    <h3>League Tables</h3>
+                    <p>Interactive standings, fixture calendars, and historical stats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TASK 2: BOOTSTRAP CARDS (1 телефон, 2 планшет, 3 ноутбук) -->
+    <section id="news" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold">Latest Headlines (Bootstrap Cards)</h2>
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Transfer News</h5>
+                            <p class="card-text">Clubs completed record-breaking deals in the final hours.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Tactics Review</h5>
+                            <p class="card-text">Analysis of modern defensive structures in European football.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Match Schedule</h5>
+                            <p class="card-text">Group stage schedule announced for the upcoming season.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TASK 2: ABOUT SECTION (Стек колонок + order-* + d-*) -->
+    <section id="about" class="py-5 bg-dark text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Текст: Идет первым на телефоне (order-1), вторым на ПК (order-md-2) -->
+                <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+                    <h2 class="fw-bold">About FootballPulse</h2>
+                    <p>We provide independent and objective football analysis for fans worldwide.</p>
+                    
+                    <!-- Скрыто на телефоне, видно на ПК -->
+                    <p class="d-none d-md-block text-warning fw-bold">
+                        ★ Desktop Exclusive: Access full statistics dashboard.
+                    </p>
+
+                    <!-- Видно на телефоне, скрыто на ПК -->
+                    <p class="d-block d-md-none text-info">
+                        📱 Mobile View Active
+                    </p>
+                </div>
+
+                <!-- Блок с числом: Вторым на телефоне (order-2), первым на ПК (order-md-1) -->
+                <div class="col-md-6 order-2 order-md-1 text-center">
+                    <div class="p-4 bg-secondary rounded-3">
+                        <h3 class="display-6 fw-bold">100K+</h3>
+                        <p class="mb-0">Active Daily Readers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TASK 2: ACCORDION (Компонент Bootstrap) -->
+    <section id="faq" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-4 fw-bold">Frequently Asked Questions</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Is FootballPulse free to read?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Yes, all daily news and match summaries are completely free.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            How often are statistics updated?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Match data updates every minute during live broadcasts.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Подключаем Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
